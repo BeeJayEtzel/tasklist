@@ -19,7 +19,7 @@ class SessionsController extends Controller
      */
     public function login()
     {
-        $successful = auth()->attempt(request(['email', 'password']));
+        $successful = auth()->attempt(request(['username', 'password']));
 
         if (!$successful) {
             return back()->withErrors([

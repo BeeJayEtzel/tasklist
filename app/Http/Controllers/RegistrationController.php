@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class RegistrationController extends Controller
 {
@@ -27,7 +28,12 @@ class RegistrationController extends Controller
             'password' => 'required|confirmed',
         ]);
 
-        $user = User::create(request(['username', 'email', 'password']));
+        $user = User::create([
+                'username' => request('username'),
+                'email' => request('email'),
+                'password' => bcrypt(request('password'))
+            ]
+        );
 
         auth()->login($user);
 
