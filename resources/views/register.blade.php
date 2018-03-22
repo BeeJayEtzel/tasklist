@@ -11,4 +11,13 @@
         <input type="password" name="password_confirmation" required>
         <input type="submit" value="Register">
     </form>
+    @if (count($errors))
+        <div class="form-errors">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            </ul>
+                @endforeach
+        </div>
+    @endif
 </div>
