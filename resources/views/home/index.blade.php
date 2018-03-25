@@ -7,6 +7,14 @@
 @section('content')
     <div class="app-grid">
         <div class="menu-panel">
+            <p>Today</p>
+            <p>Next 7 days</p>
+            <p>Calendar</p>
+            <hr>
+            <h3>Projects</h3>
+            @foreach($projects as $project)
+                <p>{{ $project->name }}</p>
+            @endforeach
         </div>
 
         <div class="task-panel">
