@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+
+    protected $fillable = [
+        'description', 'due_date', 'project_id',
+    ];
     /**
      * Get notes for a Task
      */
