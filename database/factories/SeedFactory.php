@@ -25,7 +25,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Project::class, function (Faker $faker) {
     return [
         'name' => ucfirst($faker->word),
-        'user_id' => 1, 
+        'user_id' => rand(1,10) 
     ];
 });
 
@@ -33,14 +33,14 @@ $factory->define(App\Task::class, function (Faker $faker) {
     return [
         'description' => $faker->sentence, 
         'due_date' => $faker->dateTime(), 
-        'project_id' => rand(1,10), 
+        'project_id' => rand(1,30), 
     ];
 });
 
 $factory->define(App\Note::class, function (Faker $faker) {
     return [
         'body' => $faker->sentence, 
-        'task_id' => rand(1,10) 
+        'task_id' => rand(1,50) 
     ];
 });
 
@@ -48,6 +48,6 @@ $factory->define(App\Subtask::class, function (Faker $faker) {
     return [
         'description' => $faker->sentence, 
         'due_date' => $faker->dateTime(), 
-        'task_id' => rand(1,10), 
+        'task_id' => rand(1,50), 
     ];
 });

@@ -7,7 +7,7 @@ class ProjectsTableSeeder extends Seeder {
     
     public function run()
     {
-        factory('App\Project', 10)->create();
+        factory('App\Project', 30)->create();
     }
 
 }

@@ -6,7 +6,7 @@ class TasksTableSeeder extends Seeder {
     
     public function run()
     {
-        factory('App\Task', 20)->create();
+        factory('App\Task', 50)->create();
     }
 
 }

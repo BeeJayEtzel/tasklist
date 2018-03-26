@@ -6,7 +6,7 @@ class NotesTableSeeder extends Seeder {
     
     public function run()
     {
-        factory('App\Note', 20)->create();
+        factory('App\Note', 100)->create();
     }
 
 }
