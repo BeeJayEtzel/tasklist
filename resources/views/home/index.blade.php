@@ -6,25 +6,10 @@
 
 @section('content')
     <div class="app-grid" id='app'>
-        <div class="menu-panel">
-            <p>Today</p>
-            <p>Next 7 days</p>
-            <p>Calendar</p>
-            <hr>
-            <h3>Projects</h3>
-            @foreach($user->projects as $project)
-                <p>{{ $project->name }}</p>
-                <button @click="getTasks({{ $project->id }})">{{ $project->name }}</button>
-            @endforeach
-        </div>
 
-        <div class="task-panel" id='task-panel'>
-            <h2>Project name</h2>
-                <div class="task">
-                    <p v-for="task in tasks">@{{ task.description }}</p>
-                </div>
-        </div>
-
+        @include('home.panels.menu-panel')
+        
+        @include('home.panels.task-panel')
 
 {{--
         <div class="task-panel" id='task-panel'>
