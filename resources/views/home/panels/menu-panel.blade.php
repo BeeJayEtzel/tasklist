@@ -6,6 +6,5 @@
     <h3>Projects</h3>
     @foreach($user->projects as $project)
         <p @click="getTasks({{ $project->id }})">{{ $project->name }}</p>
-        <button @click="getTasks({{ $project->id }})">{{ $project->name }}</button>
     @endforeach
 </div>
