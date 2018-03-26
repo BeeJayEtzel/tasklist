@@ -14,11 +14,11 @@ class TaskController extends Controller
     public function create()
     {
         $this->validate(request(), [
-            'text' => 'required',
+            'description' => 'required',
         ]);
 
         Task::create([
-            'text' => request('text'),
+            'description' => request('description'),
             'due_date' => request('due_date'),
             'project_id' => request('project_id'),
         ]);
@@ -29,10 +29,7 @@ class TaskController extends Controller
      */
     public function get($project)
     {
-        //$tasks = \App\Project::find($project)->tasks;
-
         return Task::where('project_id', $project)->get();
-        return ["Task one", 'Task Two!!!'];
     }
 
     /**

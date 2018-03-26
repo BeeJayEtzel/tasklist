@@ -23,4 +23,12 @@ class SubtaskController extends Controller
             'task_id' => request('task_id'),
         ]);
     }
+
+    /**
+     * Fetches the subtasks particular task
+     */
+    public function get($task)
+    {
+        return Subtask::where('task_id', $task)->get();
+    }
 }
