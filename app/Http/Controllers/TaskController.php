@@ -23,4 +23,23 @@ class TaskController extends Controller
             'project_id' => request('project_id'),
         ]);
     }
+
+    /**
+     * Fetches the tasks particular project
+     */
+    public function get($project)
+    {
+        //$tasks = \App\Project::find($project)->tasks;
+
+        return Task::where('project_id', $project)->get();
+        return ["Task one", 'Task Two!!!'];
+    }
+
+    /**
+     * Archives a particular task
+     */
+    public function archive($task)
+    {
+        //$task->archive();
+    }
 }

@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function show()
     {
-        return null;
+        $user = \Auth::user();
+        return view('home.index', compact('user'));
     }
 
 

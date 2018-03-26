@@ -13,9 +13,10 @@
 
 Route::get('/', function () {
     return view('index');
-})->name('home');
+});
 
-Route::get('/home', 'HomeController@show');
+Route::get('/home', 'HomeController@show')->name('home');
+Route::get('/home/tasks/{project}', 'TaskController@get');
 
 Route::get('/register', 'RegistrationController@show');
 Route::post('/register', 'RegistrationController@create');
