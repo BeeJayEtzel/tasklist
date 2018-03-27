@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use \App\Task;
+use \App\Note;
 
 class NoteController extends Controller
 {
@@ -21,5 +21,13 @@ class NoteController extends Controller
             'body' => request('body'),
             'task_id' => request('task_id'),
         ]);
+    }
+
+    /**
+     * Fetches the subtasks particular task
+     */
+    public function get($task)
+    {
+        return Note::where('task_id', $task)->get();
     }
 }

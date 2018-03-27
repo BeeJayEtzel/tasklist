@@ -13,14 +13,8 @@
 
         @include('home.panels.subtask-panel')
 
-{{--
+        @include('home.panels.note-panel')
 
-        <div class="note-panel">
-            @foreach($user->projects->tasks->notes as $note)
-                <p>{{ $note->body }}</p>
-            @endforeach
-        </div>
-        --}}
     </div>
 @endsection
 

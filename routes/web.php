@@ -18,9 +18,11 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@show')->name('home');
 Route::get('/home/tasks/{project}', 'TaskController@get');
 Route::get('/home/subtasks/{task}', 'SubtaskController@get');
+Route::get('/home/notes/{task}', 'NoteController@get');
 
 Route::post('/task/create', 'TaskController@create');
 Route::post('/subtask/create', 'SubtaskController@create');
+Route::post('/note/create', 'NoteController@create');
 
 Route::get('/register', 'RegistrationController@show');
 Route::post('/register', 'RegistrationController@create');

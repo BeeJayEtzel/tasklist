@@ -3,12 +3,17 @@ var app = new Vue({
     data: { 
         tasks: [],
         subtasks: [],
+        notes: [],
         description: '',
         project_id: 0,
         due_date: '',
         subtaskToCreate: {
             description: '',
             due_date: '',
+            task_id: '',
+        },
+        noteToCreate: {
+            body: '',
             task_id: '',
         }
     },
@@ -36,6 +41,24 @@ var app = new Vue({
             axios.post('/subtask/create', this.$data.subtaskToCreate)
                  .then(response => this.subtasks.push(this.$data.subtaskToCreate))
                  .catch(errors => alert('Error!'));
+        },
+        getNotes() {
+            var url = '/home/notes/' + event.target.id; 
+            this.noteToCreate.task_id = event.target.id; 
+            console.log("url: " + url);
+            axios.get(url).then(response => this.notes = response.data);
+        },
+        addNote() {
+            console.log(this.$data.subtaskToCreate);
+            axios.post('/note/create', this.$data.noteToCreate)
+                 .then(response => this.notes.push(this.$data.noteToCreate))
+                 .catch(errors => alert('Error!'));
+        },
+        getNote() {
+            var url = '/home/notes/' + event.target.id; 
+            this.noteToCreate.task_id = event.target.id; 
+            console.log("url: " + url);
+            axios.get(url).then(response => this.notes = response.data);
         },
     }
 });
