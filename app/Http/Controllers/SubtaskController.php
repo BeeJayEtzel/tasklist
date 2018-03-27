@@ -14,11 +14,12 @@ class SubtaskController extends Controller
     public function create()
     {
         $this->validate(request(), [
-            'text' => 'required',
+            'description' => 'required',
         ]);
 
+
         Subtask::create([
-            'text' => request('text'),
+            'description' => request('description'),
             'due_date' => request('due_date'),
             'task_id' => request('task_id'),
         ]);
