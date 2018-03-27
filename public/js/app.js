@@ -51,7 +51,10 @@ var app = new Vue({
         addNote() {
             console.log(this.$data.subtaskToCreate);
             axios.post('/note/create', this.$data.noteToCreate)
-                 .then(response => this.notes.push(this.$data.noteToCreate))
+                 .then(response => this.notes.push({
+                     body: this.$data.noteToCreate.body,
+                     task_id: this.$data.noteToCreate.task_id,
+                 }))
                  .catch(errors => alert('Error!'));
         },
         getNote() {
