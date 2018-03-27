@@ -16,11 +16,12 @@ var app = new Vue({
         },
         addTask() {
             axios.post('/task/create', this.$data)
-                 .then(response => alert('Task saved'))
+                 .then(response => this.tasks.push(this.$data))
                  .catch(errors => alert('Error!'));
+            
         },
-        getSubtasks(task) {
-            var url = '/home/subtasks/' + task; 
+        getSubtasks() {
+            var url = '/home/subtasks/' + event.target.id; 
             console.log("url: " + url);
             axios.get(url).then(response => this.subtasks = response.data);
         },

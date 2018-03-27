@@ -11,6 +11,8 @@
         
         @include('home.panels.task-panel')
 
+        @include('home.panels.subtask-panel')
+
 {{--
 
         <div class="note-panel">
