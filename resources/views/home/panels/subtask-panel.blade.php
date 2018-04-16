@@ -1,4 +1,4 @@
-<div class="subtask-panel" v-if="subtasks != 0">
+<div class="subtask-panel">
     <h1>Subtasks</h1>
     <p v-for="subtask in subtasks">@{{ subtask.description }}</p>
 

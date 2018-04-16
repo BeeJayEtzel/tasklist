@@ -1,4 +1,4 @@
-<div class="note-panel" v-if="notes != 0 ">
+<div class="note-panel">
     <h1>Notes</h1>
     <p v-for="note in notes">@{{ note.body }}</p>
 
