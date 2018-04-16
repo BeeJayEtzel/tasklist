@@ -39,7 +39,10 @@ var app = new Vue({
         addSubtask() {
             console.log(this.$data.subtaskToCreate);
             axios.post('/subtask/create', this.$data.subtaskToCreate)
-                 .then(response => this.subtasks.push(this.$data.subtaskToCreate))
+                 .then(response => this.subtasks.push({
+                     description: this.$data.subtaskToCreate.description,
+                     task_id: this.$data.subtaskToCreate.task_id,
+                 }))
                  .catch(errors => alert('Error!'));
         },
         getNotes() {
