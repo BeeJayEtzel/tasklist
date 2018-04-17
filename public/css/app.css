@@ -131,6 +131,10 @@ label {
     letter-spacing: 0.25rem;
 }
 
+.right {
+    float: right;
+}
+
 /**Start of main app styles**/
 
 input[type=submit].panel-button {
@@ -142,7 +146,7 @@ input[type=submit].panel-button {
     grid-template-columns: 1fr 4fr 2fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 10px;
-    align-items: stretch;
+    bottom: 0;
 }
 
 
@@ -152,8 +156,6 @@ input[type=submit].panel-button {
     height: 100vh;
     position: relative;
     margin: 0;
-    top: 0;
-    bottom: 0;
     padding-left: 10px;
     grid-column-start: 1;
     grid-row: 1 / span 2;
@@ -165,13 +167,14 @@ input[type=submit].panel-button {
     background: red;
     padding: 20px;
     grid-row: 1 / span 2;
+    overflow: auto;
 }
 
 .subtask-panel {
     padding: 20px;
     grid-column-start: 3;
     background: purple;
-    height: 50vh;
+    height: 40vh;
     grid-row: 1 / span 1;
     overflow: auto;
 }
@@ -180,6 +183,45 @@ input[type=submit].panel-button {
     padding: 20px;
     grid-column-start: 3;
     background: green;
-    height: 50vh;
+    height: 40vh;
     overflow: auto;
+}
+
+.task {
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+
+/**Mobile styles**/
+@media only screen and (max-width: 960px){
+    .app-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4 auto);
+    }
+
+    .menu-panel{
+        grid-column-start: 1;
+        grid-row-start: 1;
+        position: static;
+    }
+    
+    .task-panel {
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    .subtask-panel {
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+    
+    .note-panel {
+        grid-column-start: 1;
+        grid-row-start: 4;
+    }
+    
+    body {
+        background-color: lightblue;
+    }
 }

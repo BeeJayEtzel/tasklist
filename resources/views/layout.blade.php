@@ -13,7 +13,6 @@
     <div class="content">
         @yield('content')
     </div>
-    @include('partials.footer')
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="/js/app.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
