@@ -7,9 +7,10 @@ body {
 .register, .login {
     background-color: #27afdb;
     background-color: #0776a2;
+    color: white;
     display: inline-block;
-    width: 500px;
-    height: 500px;
+    max-width: 340px;
+    height: 50%;
     margin: auto;
     padding: 20px;
     position: absolute;
@@ -43,6 +44,7 @@ input[type=submit] {
     color: white;
 }
 
+
 input[type=submit]:hover {
     background-color: #3c6b98;
 }
@@ -62,6 +64,7 @@ label {
 
 .form-footer {
     text-align: center;
+    color: black;
 }
 
 .error {
@@ -126,4 +129,55 @@ label {
     font-size: 60px;
     font-weight: 600;
     letter-spacing: 0.25rem;
+}
+
+/**Start of main app styles**/
+
+input[type=submit].panel-button {
+    width: 210px;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: stretch;
+}
+
+
+.menu-panel {
+    background-color: #3c6b98;
+    display: inline-block;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 10px;
+    grid-column-start: 1;
+    grid-row: 1 / span 2;
+    
+}
+
+.task-panel {
+    grid-column-start: 2;
+    background: red;
+    padding: 20px;
+    grid-row: 1 / span 2;
+}
+
+.subtask-panel {
+    padding: 20px;
+    grid-column-start: 3;
+    background: purple;
+    height: 50vh;
+    grid-row: 1 / span 1;
+}
+
+.note-panel {
+    padding: 20px;
+    grid-column-start: 3;
+    background: green;
+    height: 50vh;
 }

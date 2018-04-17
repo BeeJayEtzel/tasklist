@@ -1,4 +1,4 @@
-@extends("layout")
+@extends('layout')
 
 <div class="register">
     <h1 class="form-header">Create an Account</h1>

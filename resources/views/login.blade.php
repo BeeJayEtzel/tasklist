@@ -1,6 +1,7 @@
 @extends('layout')
 
 <div class="login">
+    <h1 class="form-header">Login</h1>
     <form action="/login" method="post">
         {{ csrf_field() }}
         <label for="username">Username</label>
