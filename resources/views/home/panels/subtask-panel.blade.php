@@ -1,6 +1,14 @@
 <div class="subtask-panel">
     <h1>Subtasks</h1>
-    <p v-for="subtask in subtasks">@{{ subtask.description }}</p>
+    <p v-for="subtask in subtasks">
+            <div class="subtask" v-if="subtask.completed">
+                <i class="far fa-check-square" @click="toggleCompletion"></i> 
+                    <s>@{{ subtask.description }}</s>
+            </div>
+            <div class="subtask" v-if="!subtask.completed">
+                <i class="far fa-square" @click="toggleCompletion"></i> @{{ subtask.description }}
+            </div>
+    </p>
 
     <form action="/subtask/create" method="post" @submit.prevent="addSubtask()">
         <input type="text" name="description" v-model="subtaskToCreate.description">
