@@ -6,6 +6,7 @@ var app = new Vue({
         notes: [],
         description: '',
         project_id: 0,
+        activeProject: "Today",
         due_date: '',
         subtaskToCreate: {
             description: '',
@@ -18,9 +19,10 @@ var app = new Vue({
         }
     },
     methods: { 
-        getTasks(project) {
+        getTasks(project, projectName) {
             var url = '/home/tasks/' + project; 
             this.project_id = project;
+            this.activeProject = projectName;
             console.log("url: " + url);
             axios.get(url).then(response => this.tasks = response.data);
         },
