@@ -21,7 +21,7 @@ body {
     border-radius: 5px;
 }
 
-input[type=text], input[type=email], input[type=password] {
+input[type=text], input[type=email], input[type=password], input[type=datetime-local] {
     width: 100%;
     padding: 5px;
     margin: 5px;
@@ -173,6 +173,7 @@ input[type=submit].panel-button {
     background: purple;
     height: 50vh;
     grid-row: 1 / span 1;
+    overflow: auto;
 }
 
 .note-panel {
@@ -180,4 +181,5 @@ input[type=submit].panel-button {
     grid-column-start: 3;
     background: green;
     height: 50vh;
+    overflow: auto;
 }
