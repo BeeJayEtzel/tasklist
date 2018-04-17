@@ -15,7 +15,7 @@
         </div>
         @endif
         <div class="form-footer">
-            <input type="submit" value="Log In">
+            <input type="submit" value="Login">
         </div>
     </form>
 </div>
