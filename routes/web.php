@@ -23,6 +23,7 @@ Route::get('/home/notes/{task}', 'NoteController@get');
 Route::post('/task/create', 'TaskController@create');
 Route::post('/subtask/create', 'SubtaskController@create');
 Route::post('/note/create', 'NoteController@create');
+Route::post('/project/create', 'ProjectController@create');
 
 Route::get('/register', 'RegistrationController@show');
 Route::post('/register', 'RegistrationController@create');

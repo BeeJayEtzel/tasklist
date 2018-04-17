@@ -4,9 +4,11 @@ var app = new Vue({
         tasks: [],
         subtasks: [],
         notes: [],
+        name: '',
         description: '',
         project_id: 0,
         activeProject: "Today",
+        activeTask: "",
         due_date: '',
         subtaskToCreate: {
             description: '',
@@ -32,7 +34,8 @@ var app = new Vue({
                  .catch(errors => alert('Error!'));
             
         },
-        getSubtasks() {
+        getSubtasks(taskName) {
+            this.activeTask = taskName.description;
             var url = '/home/subtasks/' + event.target.id; 
             this.subtaskToCreate.task_id = event.target.id; 
             console.log("url: " + url);
@@ -40,7 +43,9 @@ var app = new Vue({
         },
         addSubtask() {
             console.log(this.$data.subtaskToCreate);
-            axios.post('/subtask/create', this.$data.subtaskToCreate)
+            var data = this.$data.subtaskToCreate;
+            document.getElementById('subtask-text').value = "";
+            axios.post('/subtask/create', data)
                  .then(response => this.subtasks.push({
                      description: this.$data.subtaskToCreate.description,
                      task_id: this.$data.subtaskToCreate.task_id,
@@ -68,5 +73,28 @@ var app = new Vue({
             console.log("url: " + url);
             axios.get(url).then(response => this.notes = response.data);
         },
+        addProject() {
+            var projectToCreate = {
+                name: this.$data.name
+            }
+            axios.post('/project/create', projectToCreate)
+                 .then(response => console.log("Success!"))
+                 .catch(errors => alert('Error!'));
+        },
+        toggleCompletion(task) {
+            if (task.completed === 1) {
+                task.completed = 0;
+            }
+            else {
+                task.completed = 1;
+            }
+            
+        },
+        formatDate(datetime) {
+            var d = new Date(datetime);
+            var dateStr = d.toLocaleDateString();
+            dateStr += " " + d.toLocaleTimeString();
+            return dateStr;
+        }
     }
 });
