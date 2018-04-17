@@ -32,6 +32,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
 $factory->define(App\Task::class, function (Faker $faker) {
     return [
         'description' => $faker->sentence, 
+        'completed' => $faker->boolean, 
         'due_date' => $faker->dateTime(), 
         'project_id' => rand(1,30), 
     ];
@@ -47,6 +48,7 @@ $factory->define(App\Note::class, function (Faker $faker) {
 $factory->define(App\Subtask::class, function (Faker $faker) {
     return [
         'description' => $faker->sentence, 
+        'completed' => $faker->boolean, 
         'due_date' => $faker->dateTime(), 
         'task_id' => rand(1,50), 
     ];
