@@ -28,6 +28,7 @@ var app = new Vue({
             this.activeProject = projectName;
             this.activeTask = "";
             this.subtasks = [];
+            this.notes = [];
             axios.get(url).then(response => this.tasks = response.data);
         },
         addTask() {
@@ -40,7 +41,6 @@ var app = new Vue({
             this.activeTask = taskName.description;
             var url = '/home/subtasks/' + event.target.id; 
             this.subtaskToCreate.task_id = event.target.id; 
-            console.log("url: " + url);
             axios.get(url).then(response => this.subtasks = response.data);
         },
         addSubtask() {
@@ -91,6 +91,19 @@ var app = new Vue({
             }
             var url = '/task/complete/' + task.id;
             axios.post(url, {completed: task.completed})
+                 .then(response => console.log("Success!"))
+                 .catch(errors => alert('Error!'));
+            
+        },
+        toggleSubtaskCompletion(subtask) {
+            if (subtask.completed === 1) {
+                subtask.completed = 0;
+            }
+            else {
+                subtask.completed = 1;
+            }
+            var url = '/subtask/complete/' + subtask.id;
+            axios.post(url, {completed: subtask.completed})
                  .then(response => console.log("Success!"))
                  .catch(errors => alert('Error!'));
             

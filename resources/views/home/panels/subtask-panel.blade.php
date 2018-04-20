@@ -8,15 +8,16 @@
         <input type="submit" value="Add" class="panel-button">
     </form>
     <hr>
-    <div v-for="subtask in subtasks">
-        <p class="subtask" v-if="subtask.completed">
-            <i class="far fa-check-square" @click="toggleCompletion"></i> 
+        <div v-for="subtask in subtasks">
+            <input type="checkbox" v-if="subtask.completed === 0" @click="toggleSubtaskCompletion(subtask)">
+            <input type="checkbox" v-else checked @click="toggleSubtaskCompletion(subtask)">
+            <span :id="subtask.id" class="task" v-if="subtask.completed === 0">
+                @{{ subtask.description }} 
+            </span>
+            <span class="grey" :id="subtask.id" class="task" v-if="subtask.completed === 1">
                 <s>@{{ subtask.description }}</s>
-        </p>
-        <p class="subtask" v-if="!subtask.completed">
-            <i class="far fa-square" @click="toggleCompletion"></i> @{{ subtask.description }}
-        </p>
+            </span>
+            <hr>
+        </div>
     </div>
-
-
 </div>

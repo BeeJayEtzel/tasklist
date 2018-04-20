@@ -32,4 +32,12 @@ class SubtaskController extends Controller
     {
         return Subtask::where('task_id', $task)->get();
     }
+
+    /**
+     * Complete a particular subtask
+     */
+    public function complete($task)
+    {
+        Subtask::where('id', $task)->update(['completed' => request('completed')]);
+    }
 }

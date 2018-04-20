@@ -26,6 +26,7 @@ Route::post('/note/create', 'NoteController@create');
 Route::post('/project/create', 'ProjectController@create');
 
 Route::post('/task/complete/{task}', 'TaskController@complete');
+Route::post('/subtask/complete/{subtask}', 'SubtaskController@complete');
 
 Route::get('/register', 'RegistrationController@show');
 Route::post('/register', 'RegistrationController@create');
