@@ -40,4 +40,12 @@ class SubtaskController extends Controller
     {
         Subtask::where('id', $task)->update(['completed' => request('completed')]);
     }
+
+    /**
+     * Deletes a particular subtask
+     */
+    public function delete($subtask)
+    {
+        Subtask::where('id', $subtask)->delete(['id' => request('id')]);
+    }
 }

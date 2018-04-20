@@ -39,4 +39,12 @@ class TaskController extends Controller
     {
         Task::where('id', $task)->update(['completed' => request('completed')]);
     }
+
+    /**
+     * Deletes a particular task
+     */
+    public function delete($task)
+    {
+        Task::where('id', $task)->delete(['id' => request('id')]);
+    }
 }

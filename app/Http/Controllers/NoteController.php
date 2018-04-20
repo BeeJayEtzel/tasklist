@@ -30,4 +30,12 @@ class NoteController extends Controller
     {
         return Note::where('task_id', $task)->get();
     }
+
+    /**
+     * Deletes a particular note
+     */
+    public function delete($note)
+    {
+        Note::where('id', $note)->delete(['id' => request('id')]);
+    }
 }
