@@ -1,10 +1,11 @@
 <div class="subtask-panel">
-    <h1>Subtasks</h1>
-    <p>@{{ activeTask }}</p>
+    <h2>Subtasks</h2>
+    <p v-if="activeTask" class="bold">- @{{ activeTask }}</p>
+    <hr>
     <form action="/subtask/create" method="post" @submit.prevent="addSubtask()">
         <input type="text" name="description" v-model="subtaskToCreate.description" id="subtask-text" placeholder="Add subtask...">
         <input type="datetime-local" name="due_date" v-model="subtaskToCreate.due_date">
-        <input type="submit" value="Submit" class="panel-button">
+        <input type="submit" value="Add" class="panel-button">
     </form>
     <hr>
     <div v-for="subtask in subtasks">

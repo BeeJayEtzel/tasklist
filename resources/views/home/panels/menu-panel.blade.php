@@ -9,7 +9,7 @@
     @endforeach
         
     <form action="/project/create" method="post" @submit.prevent="addProject()">
-        <input type="text" name="name" v-model="name" placeholder="Add project...">
-        <input type="submit" value="Submit" class="panel-button">
+        <input type="text" name="name" v-model="name" placeholder="Add project..." class="menu-text">
+        <input type="submit" value="Add" class="panel-button menu-button">
     </form>
 </div>

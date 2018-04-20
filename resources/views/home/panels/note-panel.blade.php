@@ -4,7 +4,7 @@
 
     <form action="/note/create" method="post" @submit.prevent="addNote()">
         <input type="text" name="description" v-model="noteToCreate.body" placeholder="Add note...">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Add" class="panel-button">
     </form>
 
 </div>

@@ -135,10 +135,23 @@ label {
     float: right;
 }
 
+.grey {
+    color: #979797;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 /**Start of main app styles**/
 
 input[type=submit].panel-button {
-    width: 210px;
+    width: 110px;
+    height: auto;
+}
+
+input[type=text].menu-text {
+    width: 80%;
 }
 
 .app-grid {
