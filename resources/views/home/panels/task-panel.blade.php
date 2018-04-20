@@ -5,12 +5,13 @@
                 <input type="checkbox" v-if="task.completed === 0" @click="toggleCompletion(task)">
                 <input type="checkbox" v-else checked @click="toggleCompletion(task)">
                 <span :id="task.id" class="task" v-if="task.completed === 0" @click="getSubtasks(task), getNotes()">
-                    @{{ task.description }} 
+                    @{{ task.description }}  
                 </span>
                 <span class="right">@{{ formatDate(task.due_date) }}</span>
                 <span class="grey" :id="task.id" class="task" v-if="task.completed === 1" @click="getSubtasks(), getNotes()">
-                    <s>@{{ task.description }}</s>
+                    <s> @{{ task.description }} </s>
                 </span>
+                <a @click="deleteTask(task)"> &nbsp; &nbsp; &nbsp; <i class="fas fa-trash-alt"></i></a>
                 <hr>
             </div>
         </div>

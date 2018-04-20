@@ -17,7 +17,7 @@
             <span class="grey" :id="subtask.id" class="task" v-if="subtask.completed === 1">
                 <s>@{{ subtask.description }}</s>
             </span>
+            <a @click="deleteSubtask(subtask)"> &nbsp; &nbsp; &nbsp; <i class="fas fa-trash-alt"></i></a>
             <hr>
         </div>
-    </div>
 </div>
