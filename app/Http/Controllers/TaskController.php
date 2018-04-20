@@ -29,14 +29,14 @@ class TaskController extends Controller
      */
     public function get($project)
     {
-        return Task::where('project_id', $project)->get();
+        return Task::where('project_id', $project)->orderBy('due_date')->get();
     }
 
     /**
-     * Archives a particular task
+     * Complete a particular task
      */
-    public function archive($task)
+    public function complete($task)
     {
-        //$task->archive();
+        Task::where('id', $task)->update(['completed' => request('completed')]);
     }
 }

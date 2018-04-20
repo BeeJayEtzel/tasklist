@@ -7,7 +7,8 @@ var app = new Vue({
         name: '',
         description: '',
         project_id: 0,
-        activeProject: "Today",
+        activeProject: "Project",
+        activeTask: "",
         activeTask: "",
         due_date: '',
         subtaskToCreate: {
@@ -25,7 +26,8 @@ var app = new Vue({
             var url = '/home/tasks/' + project; 
             this.project_id = project;
             this.activeProject = projectName;
-            console.log("url: " + url);
+            this.activeTask = "";
+            this.subtasks = [];
             axios.get(url).then(response => this.tasks = response.data);
         },
         addTask() {
@@ -55,7 +57,6 @@ var app = new Vue({
         getNotes() {
             var url = '/home/notes/' + event.target.id; 
             this.noteToCreate.task_id = event.target.id; 
-            console.log("url: " + url);
             axios.get(url).then(response => this.notes = response.data);
         },
         addNote() {
@@ -88,6 +89,10 @@ var app = new Vue({
             else {
                 task.completed = 1;
             }
+            var url = '/task/complete/' + task.id;
+            axios.post(url, {completed: task.completed})
+                 .then(response => console.log("Success!"))
+                 .catch(errors => alert('Error!'));
             
         },
         formatDate(datetime) {
