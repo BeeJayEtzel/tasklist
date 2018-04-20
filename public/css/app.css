@@ -107,6 +107,11 @@ label {
     background-color: #2b5584;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /**Start of index styles**/
 
 .main-bg {
@@ -133,6 +138,7 @@ label {
 
 .right {
     float: right;
+    padding-right: 10px;
 }
 
 .grey {
@@ -211,6 +217,11 @@ input[type=text].menu-text {
 }
 
 .task {
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.project {
     cursor: pointer;
     padding-bottom: 10px;
 }

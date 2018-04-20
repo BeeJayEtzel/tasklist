@@ -20,7 +20,7 @@
 
     <form action="/task/create" method="post" @submit.prevent="addTask()">
         <input type="text" name="description" v-model="description" placeholder="Add task...">
-        <input type="datetime-local" name="due_date" v-model="due_date">
+        <input type="datetime-local" name="due_date" v-model="due_date" value="">
         <input type="submit" value="Add" class="panel-button">
     </form>
 
