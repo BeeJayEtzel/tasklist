@@ -164,27 +164,33 @@ input[type=submit].panel-button {
 
 .task-panel {
     grid-column-start: 2;
-    background: red;
     padding: 20px;
     grid-row: 1 / span 2;
     overflow: auto;
+    box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
+    -webkit-box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
+    -moz-box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
 }
 
 .subtask-panel {
     padding: 20px;
     grid-column-start: 3;
-    background: purple;
-    height: 40vh;
+    height: 45vh;
     grid-row: 1 / span 1;
     overflow: auto;
+    box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
+    -webkit-box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
+    -moz-box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
 }
 
 .note-panel {
     padding: 20px;
     grid-column-start: 3;
-    background: green;
-    height: 40vh;
+    height: 45vh;
     overflow: auto;
+    box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
+    -webkit-box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
+    -moz-box-shadow: 10px 15px 24px -8px rgba(211,211,211,0.75);
 }
 
 .task {
@@ -220,8 +226,17 @@ input[type=submit].panel-button {
         grid-column-start: 1;
         grid-row-start: 4;
     }
-    
-    body {
-        background-color: lightblue;
+
+    .button {
+        display: block;
+        height: auto;
+        width: 50%;
+        text-align: center;
     }
+
+    .register, .login {
+        height: 100vh;
+        width: auto;
+    }
+    
 }
