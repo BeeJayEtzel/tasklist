@@ -17,7 +17,7 @@ class CreateSubtasksTable extends Migration
             $table->increments('id');
             $table->text('description');
             $table->boolean('completed')->default(0);
-            $table->timestamp('due_date');
+            $table->timestamp('due_date')->nullable();
             $table->integer('task_id');
             $table->timestamps();
         });
