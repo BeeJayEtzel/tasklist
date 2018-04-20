@@ -1,5 +1,7 @@
 <div class="task-panel" id='task-panel'>
+    <h1>Tasks</h1>
     <h2>@{{ activeProject }}</h2>
+    <hr>
         <div class="task">
             <div v-for="task in tasks" :id='task.id' >
                 <input type="checkbox" v-if="task.completed === 0" @click="toggleCompletion(task)">
