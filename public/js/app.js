@@ -108,11 +108,33 @@ var app = new Vue({
                  .catch(errors => alert('Error!'));
             
         },
+        deleteTask(task) {
+            var url = '/task/delete/' + task.id;
+            axios.post(url, {id: task.id})
+                 .then(response => this.removeObject(this.tasks, 'id', task.id));
+        },
+        deleteSubtask(subtask) {
+            var url = '/subtask/delete/' + subtask.id;
+            axios.post(url, {id: subtask.id})
+                 .then(response => this.removeObject(this.subtasks, 'id', subtask.id));
+        },
+        deleteNote(note) {
+            var url = '/note/delete/' + note.id;
+            axios.post(url, {id: note.id})
+                 .then(response => this.removeObject(this.notes, 'id', note.id));
+        },
         formatDate(datetime) {
             var d = new Date(datetime);
             var dateStr = d.toLocaleDateString();
             dateStr += " " + d.toLocaleTimeString();
             return dateStr;
+        },
+        removeObject(array, property, value){
+             array.forEach(function(result, index){
+                 if(result[property] === value){
+                     array.splice(index, 1);
+                 }
+             });       
         }
     }
 });
