@@ -139,6 +139,10 @@ label {
     color: #979797;
 }
 
+.red {
+    color: #a94442; 
+}
+
 .bold {
     font-weight: bold;
 }

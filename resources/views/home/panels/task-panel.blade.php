@@ -1,15 +1,15 @@
 <div class="task-panel" id='task-panel'>
-    <h1>Tasks</h1>
+    <h1>Notes</h1>
     <h2>@{{ activeProject }}</h2>
     <hr>
         <div class="task">
             <div v-for="task in tasks" :id='task.id' >
                 <input type="checkbox" v-if="task.completed === 0" @click="toggleCompletion(task)">
                 <input type="checkbox" v-else checked @click="toggleCompletion(task)">
-                <span :id="task.id" class="task" v-if="task.completed === 0" @click="getSubtasks(task), getNotes()">
+                <span :id="task.id" :class="isLate(task)" v-if="task.completed === 0" @click="getSubtasks(task), getNotes()">
                     @{{ task.description }}  
                 </span>
-                <span class="right">@{{ formatDate(task.due_date) }}</span>
+                <span :class="isLate(task)" class="right">@{{ formatDate(task.due_date) }}</span>
                 <span class="grey" :id="task.id" class="task" v-if="task.completed === 1" @click="getSubtasks(), getNotes()">
                     <s> @{{ task.description }} </s>
                 </span>

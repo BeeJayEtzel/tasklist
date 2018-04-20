@@ -32,6 +32,7 @@ var app = new Vue({
             axios.get(url).then(response => this.tasks = response.data);
         },
         addTask() {
+            console.log(this.$data);
             axios.post('/task/create', this.$data)
                  .then(response => this.tasks.push(this.$data))
                  .catch(errors => alert('Error!'));
@@ -60,7 +61,6 @@ var app = new Vue({
             axios.get(url).then(response => this.notes = response.data);
         },
         addNote() {
-            console.log(this.$data.subtaskToCreate);
             axios.post('/note/create', this.$data.noteToCreate)
                  .then(response => this.notes.push({
                      body: this.$data.noteToCreate.body,
@@ -110,8 +110,12 @@ var app = new Vue({
         },
         deleteTask(task) {
             var url = '/task/delete/' + task.id;
+            this.subtasks = [];
+            this.notes = [];
+            this.activeTask = "";
             axios.post(url, {id: task.id})
-                 .then(response => this.removeObject(this.tasks, 'id', task.id));
+                 .then(response => this.removeObject(this.tasks, 'id', task.id))
+                 .catch(error => alert('Problem deleting task!'));
         },
         deleteSubtask(subtask) {
             var url = '/subtask/delete/' + subtask.id;
@@ -135,6 +139,18 @@ var app = new Vue({
                      array.splice(index, 1);
                  }
              });       
+        },
+        isLate(task){
+            var now = new Date();
+            var due = new Date(task.due_date);
+            if (!task.completed)
+            {
+                if (due < now){
+                    return "red"
+                }
+            }
+
+            return "";
         }
-    }
+    },
 });
