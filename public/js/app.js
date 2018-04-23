@@ -76,7 +76,7 @@ var app = new Vue({
                 name: this.$data.name
             }
             axios.post('/project/create', projectToCreate)
-                 .then(response => console.log("Success!"))
+                 .then(response => window.location.reload())
                  .catch(errors => alert('Error!'));
         },
         toggleCompletion(task) {
@@ -124,6 +124,12 @@ var app = new Vue({
             axios.post(url, {id: note.id})
                  .then(response => this.removeObject(this.notes, 'id', note.id));
         },
+        deleteProject(project) {
+            var url = '/project/delete/' + project; 
+            axios.post(url, {id: project})
+                 .then(response => window.location.reload());
+
+        },
         formatDate(datetime) {
             var d = new Date(datetime);
             var dateStr = d.toLocaleDateString();
@@ -166,9 +172,4 @@ var app = new Vue({
                  .then(response => this.subtasks = response.data)
         }
     },
-    mounted: {
-        getProjects() {
-            
-        }
-    }
 });

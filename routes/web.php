@@ -28,6 +28,7 @@ Route::post('/project/create', 'ProjectController@create');
 Route::post('/task/complete/{task}', 'TaskController@complete');
 Route::post('/subtask/complete/{subtask}', 'SubtaskController@complete');
 
+Route::post('/project/delete/{project}', 'ProjectController@delete');
 Route::post('/task/delete/{task}', 'TaskController@delete');
 Route::post('/subtask/delete/{subtask}', 'SubtaskController@delete');
 Route::post('/note/delete/{note}', 'NoteController@delete');

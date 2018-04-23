@@ -23,4 +23,12 @@ class ProjectController extends Controller
         ]);
 
     }
+
+    /**
+     * Deletes a particular project
+     */
+    public function delete($project)
+    {
+        Project::where('id', $project)->delete(['id' => request('id')]);
+    }
 }

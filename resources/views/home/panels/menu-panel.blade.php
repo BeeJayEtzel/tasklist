@@ -1,7 +1,7 @@
 <div class="menu-panel">
     <h1><a href="/">Tasklist</a></h1>
     <h3>Projects</h3>
-    <hr> 
+    <hr>
     @foreach($user->projects as $project)
         <p class="project" @click="getTasks({{ $project->id }}, '{{ $project->name }}')">
             {{ $project->name }}
