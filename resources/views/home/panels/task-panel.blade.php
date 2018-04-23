@@ -1,5 +1,5 @@
 <div class="task-panel" id='task-panel'>
-    <h1>Notes</h1>
+    <h1>Tasks</h1>
     <h2>@{{ activeProject }}</h2>
     <hr>
         <div class="task">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-    <form action="/task/create" method="post" @submit.prevent="addTask()">
+    <form action="/task/create" method="post" @submit.prevent="addTask()" id="task-form">
         <input type="text" name="description" v-model="description" placeholder="Add task...">
         <input type="datetime-local" name="due_date" v-model="due_date" value="">
         <input type="submit" value="Add" class="panel-button">

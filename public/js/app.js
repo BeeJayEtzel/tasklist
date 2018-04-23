@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: { 
+        projects: [],
         tasks: [],
         subtasks: [],
         notes: [],
@@ -34,7 +35,7 @@ var app = new Vue({
         addTask() {
             console.log(this.$data);
             axios.post('/task/create', this.$data)
-                 .then(response => this.tasks.push(this.$data))
+                 .then(response => this.updateTasks())
                  .catch(errors => alert('Error!'));
             
         },
@@ -47,12 +48,8 @@ var app = new Vue({
         addSubtask() {
             console.log(this.$data.subtaskToCreate);
             var data = this.$data.subtaskToCreate;
-            document.getElementById('subtask-text').value = "";
             axios.post('/subtask/create', data)
-                 .then(response => this.subtasks.push({
-                     description: this.$data.subtaskToCreate.description,
-                     task_id: this.$data.subtaskToCreate.task_id,
-                 }))
+                 .then(response => this.updateSubtasks())
                  .catch(errors => alert('Error!'));
         },
         getNotes() {
@@ -151,6 +148,27 @@ var app = new Vue({
             }
 
             return "";
+        },
+        updateTasks() {
+            document.getElementById('task-form').reset();
+            this.description = "";
+            this.due_date = "";
+            var url = '/home/tasks/' + this.project_id;
+            axios.get(url)
+                 .then(response => this.tasks = response.data)
+        },
+        updateSubtasks() {
+            document.getElementById('subtask-form').reset();
+            var url = '/home/subtasks/' + this.subtaskToCreate.task_id;
+            this.subtaskToCreate.description = "";
+            this.subtaskToCreate.due_date = "";
+            axios.get(url)
+                 .then(response => this.subtasks = response.data)
         }
     },
+    mounted: {
+        getProjects() {
+            
+        }
+    }
 });

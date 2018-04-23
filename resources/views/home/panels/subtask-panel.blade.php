@@ -2,7 +2,7 @@
     <h2>Subtasks</h2>
     <p v-if="activeTask" class="bold">- @{{ activeTask }}</p>
     <hr>
-    <form action="/subtask/create" method="post" @submit.prevent="addSubtask()">
+    <form action="/subtask/create" method="post" @submit.prevent="addSubtask()" id='subtask-form'>
         <input type="text" name="description" v-model="subtaskToCreate.description" id="subtask-text" placeholder="Add subtask...">
         <input type="datetime-local" name="due_date" v-model="subtaskToCreate.due_date">
         <input type="submit" value="Add" class="panel-button">
